@@ -14,7 +14,6 @@ export const videos: Video[] = [
     title: "Hello World: pt 1",
     url: "https://www.youtube.com/watch?v=9-Dg1JV-A3s",
     shorts: [
-      "yk88ESEak7k",
       "qG5y4fDJbDk",
       "5dHGYIrbQLA",
       "LkpBeZDwuU0",
