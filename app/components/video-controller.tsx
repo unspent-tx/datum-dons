@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { videos } from "../videos";
+import videos from "../videos";
 import VideoSection from "./video-section";
 
 export default function VideoController() {
