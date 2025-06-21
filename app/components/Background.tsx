@@ -36,10 +36,10 @@ export default function Background() {
             className="object-contain"
           />
         </div>
-        <h1 className="text-8xl uppercase font-bold text-neutral-900 mt-4">
+        <h1 className="text-5xl sm:text-8xl uppercase font-bold text-neutral-900 mt-4">
           Datum Dons
         </h1>
-        <h2 className="text-5xl font-slab uppercase text-neutral-800 mt-2">
+        <h2 className="text-3xl sm:text-5xl font-slab uppercase text-neutral-800 mt-2">
           Community Code Review
         </h2>
       </div>

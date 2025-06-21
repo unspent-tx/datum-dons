@@ -47,7 +47,7 @@ const VideoButtons = ({
     <button
       key={video.id}
       onClick={() => handleVideoSelect(index)}
-      className={`px-3 py-2 rounded-lg transition-all ${
+      className={`px-3 py-2 truncate  rounded-lg transition-all ${
         currentVideoIndex === index
           ? "bg-red-600 text-white"
           : "bg-neutral-700 text-neutral-300 hover:bg-neutral-600"

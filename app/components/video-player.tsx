@@ -1,3 +1,4 @@
+import VideoParticpants from "../people/video-particpants";
 import { Video } from "../videos";
 import { useEffect, useRef, useState } from "react";
 
@@ -215,38 +216,45 @@ export default function VideoPlayer({ video }: VideoPlayerProps) {
   }, [selectedVideoId, isPlayerReady]);
 
   return (
-    <div className="bg-neutral-600 border-8 rounded-xl overflow-hidden border-red-500 flex flex-col items-center justify-center font-sans  h-full overflow-y-auto">
-      <div className="w-full relative">
-        <GridItem className="w-full aspect-video relative z-10">
-          <div ref={containerRef} className="w-full h-full" />
-        </GridItem>
+    <>
+      <div className="pointer-events-none hidden sm:flex absolute z-50 p-5 px-6 gap-2 justify-end w-full ">
+        {/* Video participants */}
+        <VideoParticpants participants={video.participants} />
       </div>
-      <div className="flex flex-wrap pt-4 gap-2 justify-center w-full bg-red-500">
-        <button
-          onClick={() => setSelectedVideoId(video.id)}
-          className={`px-4 text-xl font-bold py-2 rounded-lg transition-all ${
-            selectedVideoId === video.id
-              ? "bg-red-600 text-black"
-              : "bg-red-500 text-black hover:bg-red-400"
-          }`}
-        >
-          {video.title}
-        </button>
-        {video.shorts.map((short, idx) => (
+      <div className="bg-neutral-600 border-8 rounded-xl overflow-hidden border-red-500 flex flex-col items-center justify-center font-sans  h-full overflow-y-auto">
+        <div className="w-full relative">
+          <GridItem className="w-full aspect-video relative z-10">
+            <div ref={containerRef} className="w-full h-full" />
+          </GridItem>
+        </div>
+
+        <div className="flex flex-wrap pt-4 gap-2 justify-center w-full bg-red-500">
           <button
-            key={idx}
-            onClick={() => setSelectedVideoId(short)}
-            className={`px-4 py-2 rounded-lg transition-all ${
-              selectedVideoId === short
+            onClick={() => setSelectedVideoId(video.id)}
+            className={`px-4 text-xl font-bold py-2 rounded-lg transition-all ${
+              selectedVideoId === video.id
                 ? "bg-red-600 text-black"
                 : "bg-red-500 text-black hover:bg-red-400"
             }`}
           >
-            Short {idx + 1}
+            {video.title}
           </button>
-        ))}
+          {video.shorts.map((short, idx) => (
+            <button
+              key={idx}
+              onClick={() => setSelectedVideoId(short)}
+              className={`px-4 py-2 rounded-lg transition-all ${
+                selectedVideoId === short
+                  ? "bg-red-600 text-black"
+                  : "bg-red-500 text-black hover:bg-red-400"
+              }`}
+            >
+              Short {idx + 1}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

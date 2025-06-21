@@ -5,8 +5,13 @@ export type Video = {
   url: string;
   shorts: string[];
   code: string;
+  participants: {
+    don: Person;
+    capos: Person[];
+  };
 };
 
+import { Person } from "../people/people";
 // import video object
 import { helloWorldPt1 } from "./hello-world-pt1";
 import { helloWorldPt2 } from "./hello-world-pt2";

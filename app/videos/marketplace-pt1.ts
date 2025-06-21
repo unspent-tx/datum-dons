@@ -1,7 +1,12 @@
 import { Video } from ".";
+import { people as p } from "../people/people";
 
 export const marketplacePt1: Video = {
   index: 3,
+  participants: {
+    don: p.unspentTx,
+    capos: [p.newman, p.gZero, p.lewis],
+  },
   id: "mEE5Jfi9Sq4",
   title: "Marketplace: pt 1",
   url: "https://www.youtube.com/watch?v=mEE5Jfi9Sq4",
