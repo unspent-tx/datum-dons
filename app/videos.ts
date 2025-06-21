@@ -192,8 +192,7 @@ export const videos: Video[] = [
   }
     `,
   },
-],
-{
+  {
     index: 3,
     id: "mEE5Jfi9Sq4",
     title: "Marketplace: pt 1",
@@ -209,7 +208,7 @@ export const videos: Video[] = [
       "E2i0u3CAbr8",
       "10FD5XhTY8I",
       "05D64PsZQjA",
-      "uleKbOpHUAc"
+      "uleKbOpHUAc",
     ],
     code: `
 
