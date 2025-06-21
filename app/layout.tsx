@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Slab, Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import Background from "./components/Background";
+import LayoutClient from "./layout-client";
 
 const josefinSlab = Josefin_Slab({
   variable: "--font-josefin-slab",
@@ -52,8 +52,7 @@ export default function RootLayout({
       <body
         className={`${josefinSlab.variable} ${josefinSans.variable} antialiased`}
       >
-        <Background />
-        {children}
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

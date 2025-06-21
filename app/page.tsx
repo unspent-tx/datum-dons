@@ -4,13 +4,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-900 ">
       <Client />
-      <div className="p-20 gap-4 flex flex-wrap items-baseline space-y-4">
+      <div className="p-20 gap-4 grid grid-cols-5 space-y-4">
         <img
           src="/don.png"
           alt="logo"
           className="w-40 ring-4 !mb-10 ring-red-500 h-40 rounded-full"
         />
-        <div>
+        <div className="col-span-2">
           <h1 className="text-7xl  uppercase font-bold text-red-500">
             Datum Dons
           </h1>

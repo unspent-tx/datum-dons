@@ -2,21 +2,28 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { backgroundVisibleAtom } from "../store/atoms";
 
 export default function Background() {
   const [opacity, setOpacity] = useState(1);
+  const [showBackground, setShowBackground] = useAtom(backgroundVisibleAtom);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpacity(0);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (showBackground && opacity === 0) {
+      setOpacity(1);
+    } else {
+      const timer = setTimeout(() => {
+        setOpacity(0);
+        setShowBackground(false);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [showBackground, opacity, setShowBackground]);
 
   return (
     <div
-      className="fixed inset-0 bg-red-500 pointer-events-none z-0 flex flex-col items-center justify-center transition-opacity duration-1000"
+      className="fixed inset-0 bg-red-500 pointer-events-none z-50 flex flex-col items-center justify-center transition-opacity duration-300"
       style={{ opacity }}
     >
       <div className="relative w-full h-full flex flex-col items-center justify-center">

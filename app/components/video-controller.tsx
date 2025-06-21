@@ -1,22 +1,24 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import videos from "../videos";
 import VideoSection from "./video-section";
+import { backgroundVisibleAtom } from "../store/atoms";
+import { useSetAtom } from "jotai";
 
 export default function VideoController() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [resetToMain, setResetToMain] = useState(false);
   const currentVideo = videos[currentVideoIndex];
+  const setShowBackground = useSetAtom(backgroundVisibleAtom);
 
-  const handleVideoSelect = (index: number) => {
-    setCurrentVideoIndex(index);
-    setResetToMain(true);
-    // Reset the flag after a short delay to allow the effect to run
-    setTimeout(() => setResetToMain(false), 100);
-  };
+  const handleVideoSelect = useCallback((index: number) => {
+    setShowBackground(true);
+    setTimeout(() => {
+      setCurrentVideoIndex(index);
+    }, 600);
+  }, []);
 
   return (
-    <div className="flex flex-col px-4 gap-8">
-      <div className="flex justify-start items-center gap-4 mt-4 overflow-x-auto">
+    <>
+      <div className="flex justify-start items-center gap-4  py-2 px-2 z-[60]  shadow-lg shadow-red-500/50  overflow-x-auto sticky top-0 bg-neutral-900 ">
         <img
           src="/don.png"
           alt="logo"
@@ -27,15 +29,10 @@ export default function VideoController() {
           handleVideoSelect={handleVideoSelect}
         />
       </div>
-
-      <VideoSection video={currentVideo} resetToMain={resetToMain} />
-      <div className="flex justify-center items-center gap-4">
-        <VideoButtons
-          currentVideoIndex={currentVideoIndex}
-          handleVideoSelect={handleVideoSelect}
-        />
+      <div className="px-1">
+        <VideoSection video={currentVideo} />
       </div>
-    </div>
+    </>
   );
 }
 
@@ -56,7 +53,14 @@ const VideoButtons = ({
           : "bg-neutral-700 text-neutral-300 hover:bg-neutral-600"
       }`}
     >
-      {video.title}
+      {video.index}:
+      <span
+        className={`text-xs ml-2 ${
+          currentVideoIndex === index ? " text-white" : " text-neutral-300"
+        }`}
+      >
+        {video.title}
+      </span>
     </button>
   ));
 };
