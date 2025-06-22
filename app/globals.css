@@ -4,6 +4,19 @@
   --font-slab: var(--font-josefin-slab);
   --font-sans: var(--font-josefin-sans);
 }
+
+@keyframes shimmy {
+  0% {
+    transform: translateY(3px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
+
 /* app/globals.css */
 html {
   scroll-behavior: smooth;

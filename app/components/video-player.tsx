@@ -428,7 +428,7 @@ export default function VideoPlayer({ video }: VideoPlayerProps) {
                         error
                       );
                     }
-                  }, 3000);
+                  }, 1500);
                 } catch (error) {
                   console.error("Error in onReady handler:", error);
                 }

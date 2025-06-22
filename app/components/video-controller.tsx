@@ -53,7 +53,27 @@ const VideoButtons = ({
           : "bg-neutral-700 text-neutral-300 hover:bg-neutral-600"
       }`}
     >
-      {video.index}:
+      {currentVideoIndex === index ? (
+        <div className="inline-flex items-center bg gap-0.5 ml-1">
+          {[0, 1, 2].map((barIndex) => (
+            <div
+              key={barIndex}
+              className="w-0.5 h-3 bg-white rounded-full animate-pulse"
+              style={{
+                animationDelay: `${barIndex * 0.2}s`,
+                animationDuration: "0.8s",
+                animationIterationCount: "infinite",
+
+                animation: `pulse 0.8s ${
+                  barIndex * 0.2
+                }s infinite, shimmy 0.8s ${barIndex * 0.2}s infinite`,
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        <span className="">{video.index}:</span>
+      )}
       <span
         className={`text-xs ml-2 ${
           currentVideoIndex === index ? " text-white" : " text-neutral-300"
