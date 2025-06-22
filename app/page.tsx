@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-900 ">
       <Client />
-      <div className="p-20 gap-4 grid grid-cols-5 space-y-4">
+      <div className="p-10 lg:p-20 gap-4 grid lg:grid-cols-5 space-y-4">
         <img
           src="/don.png"
           alt="logo"

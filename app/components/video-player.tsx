@@ -463,6 +463,9 @@ export default function VideoPlayer({ video }: VideoPlayerProps) {
   const reg = "w-full h-full";
   const pip = "!fixed !bottom-0 !right-0 !h-64 !w-96 !z-50";
 
+  // Check if device is mobile (screen width < 768px)
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   return (
     <>
       <div
@@ -480,7 +483,7 @@ export default function VideoPlayer({ video }: VideoPlayerProps) {
               ref={containerRef}
               // className={isPinned ? pip : reg}
               style={
-                isPinned
+                isPinned && !isMobile
                   ? {
                       position: "fixed",
                       bottom: "0",

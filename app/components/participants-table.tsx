@@ -12,13 +12,13 @@ export default function ParticipantsTable({
   participants,
 }: ParticipantsTableProps) {
   return (
-    <div className="bg-neutral-800 rounded-xl p-5 mx-10">
+    <div className="bg-neutral-800 rounded-xl p-5 lg:mx-10">
       <h3 className="text-lg font-semibold text-white mb-3">Participants</h3>
       <div className="overflow-x-auto">
         <table className="w-full table-fixed">
           <thead>
             <tr className="border-b border-neutral-700">
-              <th className="text-left py-2 px-4 text-neutral-300 font-medium w-2/3">
+              <th className="text-left py-2 px-4 text-neutral-300 font-medium sm:w-2/3">
                 Name
               </th>
               <th className="text-left py-2 px-4 text-neutral-300 font-medium w-1/6">
