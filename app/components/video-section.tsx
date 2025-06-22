@@ -1,6 +1,7 @@
 import { Video } from "../videos";
 import VideoPlayer from "./video-player";
 import CodeBlock from "./code-block";
+import ParticipantsTable from "./participants-table";
 
 interface VideoSectionProps {
   video: Video;
@@ -16,6 +17,8 @@ export default function VideoSection({
       <VideoPlayer video={video} />
 
       <CodeBlock code={video.code} language={language} />
+
+      <ParticipantsTable participants={video.participants} />
     </div>
   );
 }
