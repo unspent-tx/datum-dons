@@ -27,11 +27,24 @@ export const lewis: Person = {
   github: "https://github.com/lewis-nduati",
 };
 
-export const peopleArray: Person[] = [unspentTx, gZero, newman, lewis];
+export const cyclonator: Person = {
+  name: "Cyclonator",
+  image: "/don.png",
+  github: "https://github.com/Cyclonator",
+};
+
+export const peopleArray: Person[] = [
+  unspentTx,
+  gZero,
+  newman,
+  lewis,
+  cyclonator,
+];
 
 export const people: Record<string, Person> = {
   unspentTx,
   gZero,
   newman,
   lewis,
+  cyclonator,
 };
